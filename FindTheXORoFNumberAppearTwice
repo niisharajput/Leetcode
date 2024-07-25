@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int duplicateNumbersXOR(vector<int>& nums) {
+        int result = 0;
+        unordered_map<int,int>  freq_map;
+        for(int i:nums){
+            int & frequency  =  freq_map[i];
+            frequency++;
+        }
+        vector<int>twice;
+        for(const auto & pair:freq_map){
+            if(pair.second == 2){
+                twice.push_back(pair.first);
+
+            }
+        }
+        for(int numss:twice){
+            result^=numss;
+        }
+        return result;
+    }
+};
