@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> occurrencesOfElement(vector<int>& nums, vector<int>& queries, int x) {
+        vector<int> List;
+        vector<int> result;
+        for(int  i =0;i<nums.size();i++){
+            if(nums[i] == x){
+                List.push_back(i);
+            }       
+        }
+        for(int query : queries){
+            if(query-1 < List.size()){
+                result.push_back(List[query-1]);
+            }else{
+                result.push_back(-1);
+            }
+        }
+        return result;
+        
+    }
+};
