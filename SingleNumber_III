@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+
+        unordered_map<int,int>freqMap;
+
+        for(int num : nums){
+            int& frequency = freqMap[num];
+            frequency ++;
+        }
+        vector<int> ans;
+
+        for(const auto& pair : freqMap){
+            if(pair.second == 1){
+                ans.push_back(pair.first);
+            }
+        }
+
+        return ans;
+        
+    }
+};
