@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> num1(nums1.begin() , nums1.end());
+
+        int min = INT_MAX;
+      bool found = false;
+        vector<int> ans;
+
+        for(int num : nums2){
+            if(num1.find(num) != num1.end()){
+                if(num<min){
+                    min = num;
+                    found = true;
+                }
+            }
+        
+        }
+       return found ? min : -1;
+
+        
+    }
+};
