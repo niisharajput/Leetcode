@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int countWords(std::vector<std::string>& words1, std::vector<std::string>& words2) {
+    unordered_map<string, int> mapA;
+        unordered_map<string, int> mapB;
+    vector<string> ans;
+
+        
+        for (const std::string& word : words1) {
+            mapA[word]++;
+        }
+        
+        
+        for (const std::string& word : words2) {
+            mapB[word]++;
+        }
+        
+    
+        for (const auto& pair : mapA) {
+            const std::string& word = pair.first;
+            if (pair.second == 1 && mapB[word] == 1) {
+                ans.push_back(word);
+            }
+        }
+        
+        return ans.size();
+    }
+};
