@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maxPower(string s) {
+
+         if (s.empty()) return 0;
+
+        int maxCount = 1; 
+        int count = 1;    
+
+        for (int i = 1; i < s.size(); i++) {
+            if (s[i] == s[i - 1]) {
+                count++;
+                if (count > maxCount) {
+                    maxCount = count;
+                }
+            } else {
+                count = 1; 
+            }
+        }
+
+        return maxCount;
+        
+    }
+};
