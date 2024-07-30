@@ -1,0 +1,23 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int n  = nums.size();
+        vector<int> odd,even;
+        for(int  num  : nums){
+            if(num % 2 != 0){
+                odd.push_back(num);
+            } else if( num % 2 == 0){
+                even.push_back(num);
+            }
+        }
+        vector<int> ans;
+
+        ans = even;
+
+        ans.insert(ans.end(), odd.begin(), odd.end());
+
+        return ans;
+       
+    
+    }
+};
