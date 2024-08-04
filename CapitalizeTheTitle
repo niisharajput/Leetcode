@@ -1,0 +1,29 @@
+class Solution {
+public:
+    string capitalizeTitle(string title) {
+        
+       std::istringstream iss(title);
+        std::string word;
+        std::vector<std::string> titles;
+
+        while (iss >> word) {
+            if (word.size() <= 2) {
+                std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+            } else {
+                std::transform(word.begin(), word.end(), word.begin(), ::tolower);
+                word[0] = std::toupper(word[0]);
+            }
+            titles.push_back(word);
+        }
+
+        std::string result;
+        for (size_t i = 0; i < titles.size(); ++i) {
+            result += titles[i];
+            if (i != titles.size() - 1) {
+                result += " ";
+            }
+        }
+
+        return result;
+    }
+};
